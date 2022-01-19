@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Hardware"
+title: "Hardware"
+order: 2
 ---
 
 As said in the previous topic, the GBA has a completely different architecture to the DMG/CGB.

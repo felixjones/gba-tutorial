@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "History"
+title: "History"
+order: 1
 ---
 
 # The Game Boy Advance
