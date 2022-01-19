@@ -48,8 +48,6 @@
             {% endif %}
           {% endfor %}
 
-          {{posts}}
-
           {% if prevIndex >= 0 %}
           <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}} {{posts[prevIndex].title}}</a>
           {% endif %}
