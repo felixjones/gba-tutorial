@@ -41,9 +41,9 @@
           {% assign posts = site[page.collection] | sort: 'order' %}
 
           {% for post in posts %}
-            {% if post.title == page.title %}
-              {% assign prevIndex = forloop.index | minus: 1 %}
-              {% assign nextIndex = forloop.index | plus: 1 %}
+            {% if post.order == page.order %}
+              {% assign prevIndex = (forloop.index - 1) %}
+              {% assign nextIndex = (forloop.index + 1) %}
               {% break %}
             {% endif %}
           {% endfor %}
