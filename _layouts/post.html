@@ -45,12 +45,12 @@
 
     <div class="PageNavigation">
       {% if page.previous_in_category %}
-      <a class="prev" href="{{page.previous_in_category.url | relative_url}}">{{page.previous_in_category.title}} &raquo;</a>
+      <a class="prev" href="{{page.previous_in_category.url | relative_url}}">&laquo; {{page.previous_in_category.title}}</a>
       {% endif "}
 
       {% if page.next_in_category %}
       <a class="next" href="{{page.next_in_category.url | relative_url}}">{{page.next_in_category.title}} &raquo;</a>
-      {% endif "}
+      {% endif %}
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
