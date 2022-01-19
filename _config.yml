@@ -2,6 +2,8 @@ remote_theme: pages-themes/primer@v0.6.0
 plugins:
   - jekyll-remote-theme
 
+baseurl: /gba-tutorial
+
 title: GBA Tutorial
 author: Felix Jones
 email: felix@felixjones.co.uk
