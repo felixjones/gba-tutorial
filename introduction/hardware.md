@@ -16,6 +16,8 @@ What does TDMI stand for? Well that stands for:
 
 The primary instruction set for ARM7 is ARMv4 (the forth version of the ARM instruction set!), but because we have support for Thumb instructions the complete instruction set is ARMv4t. The naming convention is a little confusing.
 
+From here on these two instruction sets will be stylised as: thumb and ARM.
+
 > Theory trivia: The reason Nintendo used "RISC processor" in their marketing and not "ARM processor" could be because they didn't have a license to use ARM's trademark.
 
 ### Instruction sets
