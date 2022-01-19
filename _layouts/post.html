@@ -44,30 +44,46 @@
     </div>
 
     <div class="PageNavigation">
-      {% assign cat = page.category %}
+      {% capture the_collection %}{{page.collection}}{% endcapture %}
 
-      {% for post in site.categories[cat] %}
-        {% if post.url == page.url %}
-          {% assign post_index0 = forloop.index0 %}
-          {% assign post_index1 = forloop.index %}
-        {% endif %}
-      {% endfor %}
-
-      {% for post in site.categories[cat] %}
-        {% if post_index0 == forloop.index %}
-          {% assign next_post = post %}
-        {% endif %}
-        {% if post_index1 == forloop.index0 %}
-          {% assign previous_post = post %}
-        {% endif %}
-      {% endfor %}
-
-      {% if previous_post %}
-      <a class="prev" href="{{previous_post.url | relative_url}}">&laquo; {{previous_post.title}}</a>
+      {% if page.collection %}
+        {% assign  document = site[the_collection] %}
       {% endif %}
 
-      {% if next_post %}
-      <a class="next" href="{{next_post.url | relative_url}}">{{next_post.title}} &raquo;</a>
+      {% for links in document  %}
+        {% if links.title == page.title %}
+          {% unless forloop.first %}
+            {% assign prevurl = prev.url %}
+          {% endunless %}
+          {% unless your_collection_name.last.url %}
+            {% assign next = document[forloop.index] %}
+            {% assign nexturl = next.url %}
+          {% endunless %}
+        {% endif %}
+        {% assign prev = links %}
+        {% if page.collection %}
+          {% assign document = site[the_collection] %}
+        {% endif %}
+
+      {% for links in document  %}
+        {% if links.title == page.title %}
+          {% unless forloop.first %}
+            {% assign prevurl = prev.url %}
+          {% endunless %}
+          {% unless your_collection_name.last.url %}
+            {% assign next = document[forloop.index] %}
+            {% assign nexturl = next.url %}
+          {% endunless %}
+        {% endif %}
+        {% assign prev = links %}
+      {% endfor %}{% endfor %}
+
+      {% if prevurl %}
+      <a class="prev" href="{{prevurl.url | relative_url}}">&laquo; {{page.previous.title}}</a>
+      {% endif %}
+
+      {% if nexturl %}
+      <a class="next" href="{{nexturl.url | relative_url}}">{{page.next.title}} &raquo;</a>
       {% endif %}
     </div>
 
