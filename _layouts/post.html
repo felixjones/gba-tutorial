@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      .PageNavigation {
+        font-size: 14px;
+        display: block;
+        width: auto;
+        overflow: hidden;
+      }
+
+      .PageNavigation a {
+        display: block;
+        width: 50%;
+        float: left;
+        margin: 1em 0;
+      }
+
+      .PageNavigation .next {
+        text-align: right;
+      }
+    </style>
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
@@ -25,12 +44,13 @@
     </div>
 
     <div class="PageNavigation">
-      {% if page.previous.url %}
-      <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-      {% endif %}
-      {% if page.next.url %}
-      <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-      {% endif %}
+      {% if page.previous_in_category %}
+      <a class="prev" href="{{page.previous_in_category.url | relative_url}}">{{page.previous_in_category.title}} &raquo;</a>
+      {% endif "}
+
+      {% if page.next_in_category %}
+      <a class="next" href="{{page.next_in_category.url | relative_url}}">{{page.next_in_category.title}} &raquo;</a>
+      {% endif "}
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
