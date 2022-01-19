@@ -48,12 +48,14 @@
             {% endif %}
           {% endfor %}
 
+          {{posts}}
+
           {% if prevIndex >= 0 %}
-          <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
+          <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}} {{posts[prevIndex].title}}</a>
           {% endif %}
 
           {% if nextIndex < posts.length %}
-          <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
+          <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{nextIndex}} {{posts[nextIndex].title}} &raquo;</a>
           {% endif %}
         {% endif %}
       </div>
