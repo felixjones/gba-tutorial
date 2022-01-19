@@ -1,3 +1,8 @@
+---
+layout: post
+title:  "History"
+---
+
 # The Game Boy Advance
 
 It's Game Boy **Advance**, **not Advance*d*! Also note that Game Boy is two words. It's not Gameboy, Game-Boy or GameBoy: it's Game Boy (notice the space). Game Boy Advance.
