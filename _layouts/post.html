@@ -40,11 +40,16 @@
         {% for post in posts %}
           {% if post.order == page.order %}
             {% assign prevIndex = (forloop.index0 - 1) %}
+            {% assign myIndex = forloop.index0 %}
             {% assign nextIndex = (forloop.index0 + 1) %}
             {% break %}
           {% endif %}
         {% endfor %}
       {% endif %}
+
+      <div class="Test">
+        {{prevIndex}} {{myIndex}} {{nextIndex}}
+      </div>
 
       {% if page.collection %}
       <div class="PageNavigation">
