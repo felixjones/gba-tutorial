@@ -51,7 +51,7 @@
       {% endif %}
 
       <div>
-        {{prevIndex}} {{myIndex}} {{nextIndex}}
+        {{prevIndex}} {{myIndex}} {{nextIndex}} {{posts.length}}
       </div>
 
       {% if page.collection %}
@@ -60,7 +60,7 @@
           <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}}  {{posts[prevIndex].order}} {{posts[prevIndex].title}}</a>
           {% endif %}
 
-          {% if nextIndex <= posts.length %}
+          {% if nextIndex < posts.size %}
           <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{nextIndex}} {{posts[nextIndex].order}} {{posts[nextIndex].title}} &raquo;</a>
           {% endif %}
       </div>
@@ -74,7 +74,7 @@
           <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}}  {{posts[prevIndex].order}} {{posts[prevIndex].title}}</a>
           {% endif %}
 
-          {% if nextIndex <= posts.length %}
+          {% if nextIndex < posts.size %}
           <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{nextIndex}} {{posts[nextIndex].order}} {{posts[nextIndex].title}} &raquo;</a>
           {% endif %}
       </div>
