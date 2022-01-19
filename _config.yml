@@ -1,0 +1,18 @@
+theme: primer
+title: GBA Tutorial
+author: Felix Jones
+email: felix@felixjones.co.uk
+description: > # this means to ignore newlines until "baseurl:"
+  A tutorial for writing GBA homebrew software in the modern age.
+
+# social links
+twitter_username: Xilefian # DO NOT include the @ character, or else the build will fail!
+github_username:  felixjones # DO NOT include the @ character, or else the build will fail!
+
+show_excerpts: true # set to false to remove excerpts on the homepage
+
+collections:
+  introduction:
+    order:
+      - history.md
+      - hardware.md
