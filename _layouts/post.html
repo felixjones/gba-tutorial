@@ -38,7 +38,7 @@
 
       <div class="PageNavigation">
         {% if page.collection %}
-          {% assign posts = site[page.collection] %}
+          {% assign posts = site[page.collection] | sort: 'order' %}
 
           {% for post in posts %}
             {% if post.title == page.title %}
