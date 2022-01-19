@@ -36,42 +36,32 @@
 
       {{ content }}
 
+      <div class="PageNavigation">
+        {% if page.collection %}
+          {% assign posts = site[page.collection] %}
+
+          {% for post in posts %}
+            {% if post.title == page.title %}
+              {% assign prevIndex = forloop.index0 - 1 %}
+              {% assign nextIndex = forloop.index0 + 1 %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          {% if prevIndex >= 0 %}
+          <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
+          {% endif %}
+
+          {% if nextIndex < posts.length %}
+          <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
+          {% endif %}
+        {% endif %}
+      </div>
+
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
         This site is open source. {% github_edit_link "Improve this page" %}.
       </div>
-      {% endif %}
-    </div>
-
-    <div class="PageNavigation">
-      {% if page.collection %}
-      {% assign posts = site[page.collection]  %}
-
-      {% if posts.size > 1 %}
-        {% assign prevurl = posts.last.url | remove: ".html" %}
-        {% assign nexturl = posts.first.url | remove: ".html" %}
-      {% endif %}
-
-      {% for links in posts %}
-        {% if links.title == page.title %}
-          {% unless forloop.first %}
-            {% assign prevurl = prev.url %}
-          {% endunless %}
-          {% unless forloop.last %}
-            {% assign next = posts[forloop.index] %}
-            {% assign nexturl = next.url %}
-          {% endunless %}
-        {% endif %}
-        {% assign prev = links %}
-      {% endfor %}
-      {% endif %}
-
-      {% if prevurl %}
-      <a class="prev" href="{{prevurl.url | relative_url}}">&laquo; {{page.previous.title}}</a>
-      {% endif %}
-
-      {% if nexturl %}
-      <a class="next" href="{{nexturl.url | relative_url}}">{{page.next.title}} &raquo;</a>
       {% endif %}
     </div>
 
