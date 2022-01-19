@@ -44,12 +44,28 @@
     </div>
 
     <div class="PageNavigation">
-      {% if page.previous_in_category %}
-      <a class="prev" href="{{page.previous_in_category.url | relative_url}}">&laquo; {{page.previous_in_category.title}}</a>
+      {% assign cat = page.categories[0] %}
+      {% assign cat_list = site.categories[cat] %}
+      {% for post in cat_list %}
+        {% if post.url == page.url %}
+        	{% assign pOffset = forloop.index0 | minus: 1 %}
+        	{% assign nOffset = pOffset | plus: 2 %}
+        	{% if forloop.first == false %}
+        	  {% assign next_post = cat_list[pOffset] %}
+        	{% endif %}
+        	{% if forloop.last == false %}
+        	  {% assign previous_post = cat_list[nOffset] %}
+        	{% endif %}
+        	{% break %}
+        {% endif %}
+      {% endfor %}
+
+      {% if prev_post %}
+      <a class="prev" href="{{previous_post.url | relative_url}}">&laquo; {{previous_post.title}}</a>
       {% endif %}
 
-      {% if page.next_in_category %}
-      <a class="next" href="{{page.next_in_category.url | relative_url}}">{{page.next_in_category.title}} &raquo;</a>
+      {% if next_post %}
+      <a class="next" href="{{next_post.url | relative_url}}">{{next_post.title}} &raquo;</a>
       {% endif %}
     </div>
 
