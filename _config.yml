@@ -16,6 +16,7 @@ show_excerpts: true # set to false to remove excerpts on the homepage
 
 collections:
   introduction:
+    output: true
     order:
       - history.md
       - hardware.md
