@@ -42,12 +42,15 @@
             {% assign prevIndex = forloop.index0 | minus: 1 %}
             {% assign myIndex = forloop.index0 %}
             {% assign nextIndex = forloop.index0 | plus: 1 %}
+            <div>
+              {{posts[prevIndex].title}} {{posts[myIndex].title}} {{posts[nextIndex].title}}
+            </div>
             {% break %}
           {% endif %}
         {% endfor %}
       {% endif %}
 
-      <div class="Test">
+      <div>
         {{prevIndex}} {{myIndex}} {{nextIndex}}
       </div>
 
