@@ -42,8 +42,8 @@
 
           {% for post in posts %}
             {% if post.title == page.title %}
-              {% assign prevIndex = forloop.index0 - 1 %}
-              {% assign nextIndex = forloop.index0 + 1 %}
+              {% assign prevIndex = forloop.index0 | minus: 1 %}
+              {% assign nextIndex = forloop.index0 | plus: 1 %}
               {% break %}
             {% endif %}
           {% endfor %}
