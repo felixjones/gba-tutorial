@@ -6,7 +6,14 @@
   {% for collection in collections %}
     {% if collection.label == page.collection %}
       {% assign prevCollectionIndex = forloop.index0 | minus: 1 %}
+      {% if prevCollectionIndex >= 0 %}
+        {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
+      {% endif %}
+
       {% assign nextCollectionIndex = forloop.index0 | plus: 1 %}
+      {% if nextCollectionIndex < collections.size %}
+        {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
+      {% endif %}
       {% break %}
     {% endif %}
   {% endfor %}
@@ -20,14 +27,6 @@
       {% break %}
     {% endif %}
   {% endfor %}
-
-  {% if prevIndex < 0 and prevCollectionIndex >= 0 %}
-    {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
-  {% endif %}
-
-  {% if nextIndex >= posts.size and nextCollectionIndex < collections.size %}
-    {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
-  {% endif %}
 {% endif %}
 
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
@@ -68,10 +67,6 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-
-      <div class="PageNavigation">
-        Collections {{nextColPage.title}} {{prevColPage.title}}
-      </div>
 
       {% if page.collection %}
       <div class="PageNavigation">
