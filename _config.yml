@@ -20,3 +20,13 @@ collections:
     order:
       - history.md
       - hardware.md
+  testA:
+    output: true
+    order:
+      - a.md
+      - b.md
+  testB:
+    output: true
+    order:
+      - c.md
+      - d.md
