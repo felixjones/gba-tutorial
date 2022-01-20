@@ -11,14 +11,6 @@
     {% endif %}
   {% endfor %}
 
-  {% if prevCollectionIndex >= 0 %}
-    {% assign prevColPage = collections[prevCollectionIndex].label %}
-  {% endif %}
-
-  {% if nextCollectionIndex < site.collections.size %}
-    {% assign nextColPage = collections[nextCollectionIndex].label %}
-  {% endif %}
-
   {% assign posts = site[page.collection] | sort: 'ordering' %}
 
   {% for post in posts %}
@@ -28,6 +20,14 @@
       {% break %}
     {% endif %}
   {% endfor %}
+
+  {% if prevIndex < 0 and prevCollectionIndex >= 0 %}
+    {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
+  {% endif %}
+
+  {% if nextIndex >= posts.size and nextCollectionIndex < site.collections.size %}
+    {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
+  {% endif %}
 {% endif %}
 
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
@@ -70,7 +70,7 @@
       {% endif %}
 
       <div class="PageNavigation">
-        Collections {{nextColPage}} {{prevColPage}}
+        Collections {{nextColPage.title}} {{prevColPage.title}}
       </div>
 
       {% if page.collection %}
@@ -78,6 +78,7 @@
         {% if prevIndex >= 0 %}
         <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
         {% elsif prevColPage %}
+        <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
         {% else %}
         <a class="prev">-</a>
         {% endif %}
@@ -87,6 +88,7 @@
         {% if nextIndex < posts.size %}
         <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
         {% elsif nextColPage %}
+        <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
         {% else %}
         <a class="next">-</a>
         {% endif %}
@@ -100,6 +102,7 @@
         {% if prevIndex >= 0 %}
         <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
         {% elsif prevColPage %}
+        <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
         {% else %}
         <a class="prev">-</a>
         {% endif %}
@@ -109,6 +112,7 @@
         {% if nextIndex < posts.size %}
         <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
         {% elsif nextColPage %}
+        <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
         {% else %}
         <a class="next">-</a>
         {% endif %}
