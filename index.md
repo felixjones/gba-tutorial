@@ -3,7 +3,7 @@
 A tutorial for writing GBA homebrew software in the modern age.
 
 <ol>
-{% assign sorted = site.collections | where: "title" %}
+{% assign sorted = site.collections | where_exp: "item", "item.label != 'posts'" %}
 {% for collection in sorted %}
   <li>
     <a>{{ collection.title }}</a>
