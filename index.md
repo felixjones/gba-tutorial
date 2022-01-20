@@ -3,39 +3,15 @@
 A tutorial for writing GBA homebrew software in the modern age.
 
 <ol>
+{% assign sorted = site.collections | where: "title" %}
+{% for collection in sorted %}
   <li>
-    <a>Introduction</a>
+    <a>{{ collection.title }}</a>
     <ol>
-      {% assign sorted = site.introduction | sort: 'ordering' %}
-      {% for post in sorted %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
+    {% for item in site[collection.label] %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
     </ol>
   </li>
-
-  <li>
-    <a>Test A</a>
-    <ol>
-      {% assign sorted = site.testA | sort: 'ordering' %}
-      {% for post in sorted %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
-    </ol>
-  </li>
-
-  <li>
-    <a>Test B</a>
-    <ol>
-      {% assign sorted = site.testB | sort: 'ordering' %}
-      {% for post in sorted %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
-    </ol>
-  </li>
+{% endfor %}
 </ol>

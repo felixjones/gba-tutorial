@@ -16,16 +16,19 @@ show_excerpts: true # set to false to remove excerpts on the homepage
 
 collections:
   introduction:
+    title: Introduction
     output: true
     order:
       - history.md
       - hardware.md
   testA:
+    title: Test A
     output: true
     order:
       - a.md
       - b.md
   testB:
+    title: Test B
     output: true
     order:
       - c.md
