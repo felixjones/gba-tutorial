@@ -9,7 +9,7 @@
     {% endif %}
   {% endfor %}
 
-  {% assign posts = page.collection | sort: 'ordering' %}
+  {% assign posts = site[page.collection] | sort: 'ordering' %}
 
   {% for post in posts %}
     {% if post.title == page.title %}
