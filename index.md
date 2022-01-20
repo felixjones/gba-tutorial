@@ -10,7 +10,7 @@ A tutorial for writing GBA homebrew software in the modern age.
     <ol>
     {% assign posts = site[collection.label] | sort: 'ordering' %}
     {% for post in posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
     {% endfor %}
     </ol>
   </li>
