@@ -11,7 +11,7 @@
     {% endif %}
   {% endfor %}
 
-  {% prevCollectionIndex >= 0 %}
+  {% if prevCollectionIndex >= 0 %}
     {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
   {% endif %}
 
