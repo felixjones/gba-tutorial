@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+
+{% if page.collection %}
+  {% for collection in site.collections %}
+    {% if collection.label == page.collection.label %}
+      {% assign prevCollectionIndex = forloop.index0 | minus: 1 %}
+      {% assign nextCollectionIndex = forloop.index0 | plus: 1 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign posts = site[page.collection] | sort: 'ordering' %}
+
+  {% for post in posts %}
+    {% if post.title == page.title %}
+      {% assign prevIndex = forloop.index0 | minus: 1 %}
+      {% assign nextIndex = forloop.index0 | plus: 1 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if prevIndex < 0 && prevCollectionIndex >= 0 %}
+    {% assign prevColPage = site[site.collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
+  {% endif %}
+
+  {% if nextIndex >= posts.size && nextCollectionIndex < site.collections.size %}
+    {% assign nextColPage = site[site.collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
+  {% endif %}
+{% endif %}
+
 <html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
@@ -14,9 +43,13 @@
 
       .PageNavigation a {
         display: block;
-        width: 50%;
+        width: 33.33%;
         float: left;
         margin: 1em 0;
+      }
+
+      .PageNavigation .mid {
+        text-align: center;
       }
 
       .PageNavigation .next {
@@ -35,34 +68,24 @@
       {% endif %}
 
       {% if page.collection %}
-        {% assign posts = site[page.collection] | sort: 'order' %}
-
-        {% for post in posts %}
-          {% if post.order == page.order %}
-            {% assign prevIndex = forloop.index0 | minus: 1 %}
-            {% assign myIndex = forloop.index0 %}
-            {% assign nextIndex = forloop.index0 | plus: 1 %}
-            <div>
-              {{posts[prevIndex].title}} {{posts[myIndex].title}} {{posts[nextIndex].title}}
-            </div>
-            {% break %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-
-      <div>
-        {{prevIndex}} {{myIndex}} {{nextIndex}} {{posts.length}}
-      </div>
-
-      {% if page.collection %}
       <div class="PageNavigation">
-          {% if prevIndex >= 0 %}
-          <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}}  {{posts[prevIndex].order}} {{posts[prevIndex].title}}</a>
-          {% endif %}
+        {% if prevIndex >= 0 %}
+        <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
+        {% elsif prevColPage %}
+        <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
+        {% else %}
+        <a class="prev">-</a>
+        {% endif %}
 
-          {% if nextIndex < posts.size %}
-          <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{nextIndex}} {{posts[nextIndex].order}} {{posts[nextIndex].title}} &raquo;</a>
-          {% endif %}
+        <a class="mid" href="{{ "/" | absolute_url }}">Table of Contents</a>
+
+        {% if nextIndex < posts.size %}
+        <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
+        {% elsif nextColPage %}
+        <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
+        {% else %}
+        <a class="next">-</a>
+        {% endif %}
       </div>
       {% endif %}
 
@@ -70,13 +93,23 @@
 
       {% if page.collection %}
       <div class="PageNavigation">
-          {% if prevIndex >= 0 %}
-          <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{prevIndex}}  {{posts[prevIndex].order}} {{posts[prevIndex].title}}</a>
-          {% endif %}
+        {% if prevIndex >= 0 %}
+        <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
+        {% elsif prevColPage %}
+        <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
+        {% else %}
+        <a class="prev">-</a>
+        {% endif %}
 
-          {% if nextIndex < posts.size %}
-          <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{nextIndex}} {{posts[nextIndex].order}} {{posts[nextIndex].title}} &raquo;</a>
-          {% endif %}
+        <a class="mid" href="{{ "/" | absolute_url }}">Table of Contents</a>
+
+        {% if nextIndex < posts.size %}
+        <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
+        {% elsif nextColPage %}
+        <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
+        {% else %}
+        <a class="next">-</a>
+        {% endif %}
       </div>
       {% endif %}
 
