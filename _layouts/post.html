@@ -25,7 +25,7 @@
     {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
   {% endif %}
 
-  {% if nextIndex >= posts.size and nextCollectionIndex < site.collections.size %}
+  {% if nextIndex >= posts.size and nextCollectionIndex < collections.size %}
     {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
   {% endif %}
 {% endif %}
