@@ -71,7 +71,7 @@
       <div class="PageNavigation">
         {% if prevIndex >= 0 %}
         <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
-        {% elsif prevColPage %}
+        {% elsif prevCollectionIndex >= 0 %}
         <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
         {% else %}
         <a class="prev">-</a>
@@ -81,7 +81,7 @@
 
         {% if nextIndex < posts.size %}
         <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
-        {% elsif nextColPage %}
+        {% elsif nextCollectionIndex < site.collections.size %}
         <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
         {% else %}
         <a class="next">-</a>
@@ -95,7 +95,7 @@
       <div class="PageNavigation">
         {% if prevIndex >= 0 %}
         <a class="prev" href="{{posts[prevIndex].url | relative_url}}">&laquo; {{posts[prevIndex].title}}</a>
-        {% elsif prevColPage %}
+        {% elsif prevCollectionIndex >= 0 %}
         <a class="prev" href="{{prevColPage.url | relative_url }}">&laquo; {{prevColPage.title}}</a>
         {% else %}
         <a class="prev">-</a>
@@ -105,7 +105,7 @@
 
         {% if nextIndex < posts.size %}
         <a class="next" href="{{posts[nextIndex].url | relative_url}}">{{posts[nextIndex].title}} &raquo;</a>
-        {% elsif nextColPage %}
+        {% elsif nextCollectionIndex < site.collections.size %}
         <a class="next" href="{{nextColPage.url | relative_url }}">{{nextColPage.title}} &raquo;</a>
         {% else %}
         <a class="next">-</a>
