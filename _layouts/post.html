@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 {% if page.collection %}
-  {% for collection in site.collections %}
+  {% assign collections = site.collections | where_exp: "item", "item.label != 'posts'" %}
+
+  {% for collection in collections %}
     {% if collection.label == page.collection.label %}
       {% assign prevCollectionIndex = forloop.index0 | minus: 1 %}
       {% assign nextCollectionIndex = forloop.index0 | plus: 1 %}
@@ -20,11 +22,11 @@
   {% endfor %}
 
   {% if prevIndex < 0 and prevCollectionIndex >= 0 %}
-    {% assign prevColPage = site[site.collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
+    {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
   {% endif %}
 
   {% if nextIndex >= posts.size and nextCollectionIndex < site.collections.size %}
-    {% assign nextColPage = site[site.collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
+    {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
   {% endif %}
 {% endif %}
 
