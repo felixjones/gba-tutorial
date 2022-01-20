@@ -4,7 +4,7 @@
   {% assign collections = site.collections | where_exp: "item", "item.label != 'posts'" %}
 
   {% for collection in collections %}
-    {% if collection.label == page.collection.label %}
+    {% if collection.label == page.collection %}
       {% assign prevCollectionIndex = forloop.index0 | minus: 1 %}
       {% assign nextCollectionIndex = forloop.index0 | plus: 1 %}
       {% break %}
