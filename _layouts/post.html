@@ -3,17 +3,14 @@
 {% if page.collection %}
   {% assign collections = site.collections | where_exp: "item", "item.label != 'posts'" %}
 
+  {% assign oneMore = false %}
   {% for collection in collections %}
-    {% if collection.label == page.collection %}
-      {% assign prevCollectionIndex = forloop.index0 | minus: 1 %}
-      {% if prevCollectionIndex >= 0 %}
-        {% assign prevColPage = site[collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
-      {% endif %}
-
-      {% assign nextCollectionIndex = forloop.index0 | plus: 1 %}
-      {% if nextCollectionIndex < collections.size %}
-        {% assign nextColPage = site[collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
-      {% endif %}
+    {% if oneMore == false %}
+      {% assign prevColPage = site[collection.label] | sort: 'ordering' | last %}
+    {% elsif collection.label == page.collection %}
+      {% assign oneMore = true %}
+    {% else %}
+      {% assign nextColPage = site[collection.label] | sort: 'ordering' | last %}
       {% break %}
     {% endif %}
   {% endfor %}
