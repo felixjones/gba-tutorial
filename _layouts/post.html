@@ -5,10 +5,10 @@
 
   {% assign oneMore = false %}
   {% for collection in collections %}
-    {% if oneMore == false %}
-      {% assign prevColPage = site[collection.label] | sort: 'ordering' | last %}
-    {% elsif collection.label == page.collection %}
+    {% if collection.label == page.collection %}
       {% assign oneMore = true %}
+    {% elsif oneMore == false %}
+      {% assign prevColPage = site[collection.label] | sort: 'ordering' | last %}
     {% else %}
       {% assign nextColPage = site[collection.label] | sort: 'ordering' | first %}
       {% break %}
