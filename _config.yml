@@ -21,15 +21,3 @@ collections:
     order:
       - history.md
       - hardware.md
-  testA:
-    title: Test A
-    output: true
-    order:
-      - a.md
-      - b.md
-  testB:
-    title: Test B
-    output: true
-    order:
-      - c.md
-      - d.md
