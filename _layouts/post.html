@@ -20,11 +20,11 @@
   {% endfor %}
 
   {% if prevIndex < 0 and prevCollectionIndex >= 0 %}
-    {% assign prevColPage = site.collections[prevCollectionIndex] | sort: 'ordering' | last %}
+    {% assign prevColPage = site[site.collections[prevCollectionIndex].label] | sort: 'ordering' | last %}
   {% endif %}
 
   {% if nextIndex >= posts.size and nextCollectionIndex < site.collections.size %}
-    {% assign nextColPage = site.collections[nextCollectionIndex] | sort: 'ordering' | first %}
+    {% assign nextColPage = site[site.collections[nextCollectionIndex].label] | sort: 'ordering' | first %}
   {% endif %}
 {% endif %}
 
