@@ -10,7 +10,7 @@
     {% elsif collection.label == page.collection %}
       {% assign oneMore = true %}
     {% else %}
-      {% assign nextColPage = site[collection.label] | sort: 'ordering' | last %}
+      {% assign nextColPage = site[collection.label] | sort: 'ordering' | first %}
       {% break %}
     {% endif %}
   {% endfor %}
