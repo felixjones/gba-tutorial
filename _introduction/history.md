@@ -30,6 +30,7 @@ There are several revisions of the Game Boy Advance hardware:
 |---|---|---|---|---|
 |Game Boy Advance|AGB-001|Advance Game Boy|March 21, 2001|Original model (No light)|
 |Game Boy Advance SP|AGS-001|Game Boy Advance Special|February 14, 2003|Frontlight LCD (with a slightly bluish hue)|
+|Game Boy Playe|DOL-017|-|March 21, 2003|An accessory that lets your play Game Boy games on TV via your Game Cube|
 |Game Boy Advance SP (Now with a BRIGHTER backlit screen!)|AGS-101|-|September 2005|Backlight LCD (and it looks gorgeous)|
 |Game Boy micro|OXY|Oxy|September 13, 2005|No DMG/CGB backwards compatibility|
 

@@ -89,3 +89,25 @@ SRAM for short. This isn't actually part of the console, it resides in the game 
 It's also very slow. It's intended for saving data, like a save file or something.
 
 Maxes out at 64KiB, but 32KiB is what you usually find out in the wild.
+
+## Game Paks
+
+AKA: the cartridge, and the ROM. The maximum addressable size is 32MiB, however 64MiB cartridges do exist (those weird GBA video cartridges are such examples), and these achieve greater capacity through bank switching.
+
+Some cartridges have additional hardware on them, such as a real-time clock, a vibration motor, a tilt sensor, a freaking analogue TV tuner, and a crazy card-scanning accessory.
+
+## Display
+
+### Geometry
+
+240 horizontal pixels, by 160 vertical pixels. 240x160. This was marketed as "wide screen", with a 3:2 aspect ratio. Compared to modern displays, this isn't THAT wide, but compared to the DMG/CGB's 160x144 display (10:9) it is wider.
+
+On the original GBA models; the display's individual pixels are made up of blue, green, and red components. This is called BGR pixel arrangement.
+
+Knowing the pixel arrangement lets you do some cool sub-pixel anti-aliasing, but hold your horses on that idea: GBA games can also be played on televisions via the Game Boy Player, and these days you can play GBA games on all sorts of devices on all kinds of displays, so you can't depend on a BGR pixel arrangement.
+
+> Trivia: Whilst the top screen of the Nintendo DS has BGR pixel arrangement, the bottom screen has RGB pixel arrangement.
+
+### Colour Depth
+
+### Display Gamma
