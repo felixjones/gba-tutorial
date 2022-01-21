@@ -35,10 +35,12 @@ There are several revisions of the Game Boy Advance hardware:
 
 All these models of Game Boy Advance will be referred to as the Game Boy Advance, or GBA for short. Model IDs will be used when mentioning information specific to particular models.
 
+> Non-trivia: I seem to remember reading in a magazine prior to the SP's release that it stood for "Special Project" and was intended to be a limited run design. I can find zero sources on the internet regarding this, so probably my dumb kid brain messing up the rememberings.
+
 ### Nintendo DS
 
 Worth mentioning because there is GBA backwards compatibility (but no DMG/CGB) and there are things to note.
 
 Released in 2004, the DS stands for "Dual Screen". There are two models of interest to us: Original Nintendo DS (codename Nitro, model ID NTR), and the 2006 revision: DS Lite (model ID USG).
 
-Later DS models dropped GBA support, but the GBA hardware secretly lives inside them, and is even used for the GBA virtual console of the DS' successor: 3DS.
+Later DS models dropped GBA support, but the GBA hardware secretly lives inside them, and is even used for the GBA virtual console of the 3DS (the DS' successor, if you haven't heard of it).
