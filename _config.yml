@@ -21,3 +21,4 @@ collections:
     order:
       - history.md
       - hardware.md
+      - display.md
