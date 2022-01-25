@@ -82,7 +82,7 @@ The AGS-101 (backlit SP), Game Boy Player, Micro, and onwards all assume a displ
 
 ### But wait, there's more!
 
-On the previous page I mentioned that the frontlit AGS-001 (first model of SP) has a "slightly bluish hue" to its light? Well, now not only is the screen is more visible (gamma is still a little dark), but it's also a bit blue.
+On the History page I mentioned that the frontlit AGS-001 (first model of SP) has a "slightly bluish hue" to its light? Well, now not only is the screen is more visible (gamma is still a little dark), but it's also a bit blue.
 
 Final Fantasy Tactics Advance provides 3 colour palettes named "LCD A", "LCD B", and "TV". Each of these palettes attempt to adjust for various GBA displays.
 
