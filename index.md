@@ -2,6 +2,8 @@
 
 A tutorial for writing GBA homebrew software in the modern age.
 
+Linker scripts, GCC, Clang, and more.
+
 <ol>
 {% assign collections = site.collections | where_exp: "item", "item.label != 'posts'" %}
 {% for collection in collections %}

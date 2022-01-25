@@ -20,5 +20,11 @@ collections:
     output: true
     order:
       - history.md
-      - hardware.md
+      - architecture.md
       - display.md
+      - sound.md
+  setup:
+    title: Setup
+    output: true
+    order:
+      - toolchain.md

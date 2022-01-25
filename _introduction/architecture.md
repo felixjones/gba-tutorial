@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Hardware"
+title: "Architecture"
 ordering: 2
 ---
 
-As said in the previous page, the GBA has a completely different machine architecture to the DMG/CGB.
+The GBA has a completely different machine architecture to the DMG/CGB.
 
 # The architecture
 
@@ -28,17 +28,17 @@ From here on these two instruction sets will be stylised as: thumb and ARM.
 
 ### Instruction sets
 
-This is actually super important for GBA stuff. The ARM7TDMI has fixed-length instructions. ARM instructions are 32-bit, thumb instructions are 16-bit.
+This is actually super important for GBA stuff. The ARMv4t instruction set uses fixed-length instructions. ARM instructions are 32-bit, thumb instructions are 16-bit.
 
-The GBA is a 32-bit console, it will boot up reading 32-bit instructions to execute on its 32-bit CPU. But the bus to the cartridge is 16-bit! Which means all 32-bit reads will take two reads. That's not good for performance\*. Also: 32-bits is a lot of bits taking up a lot of space, and the ROM chips on these cartridges cost money.
+The GBA is a 32-bit console, it will boot up reading 32-bit instructions to execute on its 32-bit CPU. But the bus to the cartridge is 16-bit! Which means all 32-bit reads will take two reads. That's not good for performance (maybe<sup>1</sup>). Also: 32-bits is a lot of bits taking up a lot of space, and the ROM chips on these cartridges cost money.
 
-The smaller 16-bit thumb instructions can be read from the cartridge in 1, the instructions are also much more dense in terms of bit storage, which (in theory) means smaller games, which means smaller ROM chips, so money saved.
+The smaller 16-bit thumb instructions can be read across the cartridge's 16-bit bus in 1 read, the instructions are also much more dense in terms of bit storage, which (in theory) means smaller games, which means smaller ROM chips, so money saved.
 
 > Trivia: There is a reason why 16-bit thumb is so ideal for cheap cartridges on a 16-bit bus, and that's because ARM originally designed thumb with Nintendo and their cartridge consoles in mind. The ARM7TDMI itself (and the thumb instruction set) was published in 1994, some 7 years before the GBA's release date!
 
 ### Clock Speed
 
-The CPU runs at 2^24 cycles/second, which is 16.777216 megahertz (MHz). Some instructions take multiple cycles to execute, and some memory accesses take multiple cycles to complete.
+The CPU runs at 2^24 cycles-per-second, which is 16.777216 megahertz (MHz). Some instructions take multiple cycles to execute, and some memory accesses take multiple cycles to complete.
 
 ## Random Access Memories
 
@@ -50,7 +50,11 @@ But first: a bit about notation.
 |Kibibyte|Kilobyte        |1024 Bytes|KiB       |K        |
 |Mebibyte|Megabyte        |1024 KiB  |MiB       |M        |
 
-When required, we'll use the 1998 IEC names and symbols as it avoids ambiguity. The LD symbols are used in linker scripts, which will be important later.
+When required, we'll use the 1998 IEC names and symbols as they avoid ambiguity. The LD symbols are used in linker scripts, which will be important later.
+
+## Cache?
+
+GBA has no cache.
 
 ### Internal RAM
 
@@ -74,19 +78,19 @@ PRAM? CRAM for colour RAM? There's no general short term for this RAM, so we'll 
 
 #### 1KiB Object Attribute Memory
 
-OAM for short. This stores everything related to setting the up hardware sprites for display.
+OAM for short. This stores everything related to setting up hardware sprites for display.
 
 ### External RAM
 
-External from the CPU package, this RAM is still on the motherboard in its own little chip.
+EWRAM for short. External from the CPU package, this RAM is still on the motherboard in its own little chip.
 
 256KiB on a 16-bit bus. 32-bit accesses are automatically converted to two 16-bit access. Traditionally this is where the heap is placed for big allocations (because we have soooo much space with 256KiB). This is slower than IWRAM, and being 16-bits makes this more ideal for thumb instructions, rather than ARM instructions.
 
 ### Save RAM
 
-SRAM for short. This isn't actually part of the console, it resides in the game pak (the cartridge). This is only available on cartridges with an RAM chip on board. 8-bit accesses only and the hardware does nothing to help if you want to access 16 or 32 bits.
+SRAM for short. This isn't actually part of the console, it resides in the game pak (the cartridge). This is only available on cartridges with a RAM chip on board. 8-bit accesses only, and the hardware does nothing to help if you want to access 16 or 32 bits.
 
-It's also very slow. It's intended for saving data, like a save file or something.
+The 8-bit accesses makes this kind of slow. Intended for saving data, like a save file or something.
 
 Maxes out at 64KiB, but 32KiB is what you usually find out in the wild.
 
@@ -95,3 +99,15 @@ Maxes out at 64KiB, but 32KiB is what you usually find out in the wild.
 AKA: the cartridge, and the ROM. The maximum addressable size is 32MiB, however 64MiB cartridges do exist (those weird GBA video cartridges are such examples), and these achieve greater capacity through bank switching.
 
 Some cartridges have additional hardware on them, such as a real-time clock, a vibration motor, a tilt sensor, a freaking analogue TV tuner, and a crazy card-scanning accessory.
+
+### Game Pak Prefetch
+
+This is a weird bit of hardware that is designed to try and speed up executing code from the Game Pak ROM. After fetching an instruction from ROM, whenever the CPU is not accessing the bus the prefetcher will further read up to an additional 8 16-bit values from the ROM, and store them internally. If the next access the CPU makes is within the area of ROM currently in the prefetch buffer then it will be read immediately (0 wait-cycles).
+
+In practical terms, this usually ends up with ROM thumb instructions in the prefetch buffer (because the next CPU read is usually the next instruction in ROM).
+
+This hardware feature requires explicitly enabling, and it's usually worth doing if you're executing anything from ROM.
+
+***
+
+<sup>1</sup> Theoretically, if you're able to do something in ARM with 50% less instructions than in thumb, then executing ARM across 16-bit bus might not be such a bad performance hit. However, not all instructions are identical, so it is quite unlikely you'd naturally stumble across a scenario where this makes sense.
