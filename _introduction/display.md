@@ -76,7 +76,7 @@ There's a cute way to figure out a display's gamma: use a dithering of pure blac
 
 How on earth did we ever see ANYTHING on this device? Well, as a child you didn't really care because it's still a GBA, the most powerful hand-held games console (at the time).
 
-Also we all had those were over-head light accessories that put an annoying ball of light in the middle of the screen, so you had to constantly angle the device as you played to see what you're doing.
+Also we all had these weird over-head light accessories that shone an annoying blob of light right at the middle of the screen, so you had to constantly angle the device as you played to see what you're doing.
 
 The AGS-101 (backlit SP), Game Boy Player, Micro, and onwards all assume a display closer to that of an LCD TV (which we can assume has a gamma of 2.2, an sRGB PC display).
 
