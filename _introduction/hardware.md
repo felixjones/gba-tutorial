@@ -162,7 +162,7 @@ There's a cute way to figure out a display's gamma: use a dithering of pure blac
 [Damian "PinoBatch" Yerrick](https://twitter.com/PinoBatch) estimates the GBA's gamma to be [somewhere between 3 and 4](https://pineight.com/gba/#static). What does that mean? It means the GBA's display is freaking DARK.    
 [teryor](https://www.blogger.com/profile/09825626907766471207) also conducted [their own experiments](http://codewitchgamedev.blogspot.com/2015/08/emulating-gbas-display-with-gamma.html) and estimates the gamma for the individual RGB channels to be 4.0, 3.0, and 1.4 (so blue should be a bit more perceivable).
 
-|<img src="assets/QWzuQ54.jpg" alt="Photograph of an AGB-001 showing a Pokemon center from Pokemon Sapphire" width="400"/>|<img src="assets/ktD5hLc.png" alt="Tilemap of a Pokemon center from Pokemon Sapphire, with the right-side adjusted for AGB-001 gamma" width="400"/>|
+|<img src="assets/QWzuQ54.jpg" alt="Photograph of an AGB-001 showing a Pokemon center from Pokemon Sapphire" width="400"/>|<img src="assets/ktD5hLc.png" alt="Tilemap of a Pokemon center from Pokemon Sapphire, with the right-side adjusted for AGB-001 gamma" width="480"/>|
 |---|---|
 |Photo by [teryor](https://www.blogger.com/profile/09825626907766471207)|Tilemap adjustment by [teryor](https://www.blogger.com/profile/09825626907766471207)|
 
@@ -184,7 +184,7 @@ Below I have the game running in the [mGBA emulator](https://mgba.io/) show each
 |---|---|---|
 |LCD A<br/>(AGB-001)|<img src="assets/ffta_pc_lcdA.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|<img src="assets/ffta_agb_lcdA.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|
 |LCD B<br/>(AGS-001)|<img src="assets/ffta_pc_lcdB.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|<img src="assets/ffta_agb_lcdB.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|
-|TV<br/>(DOL-017)|<img src="assets/ffta_pc_TV.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|<img src="assets/ffta_agb_TV.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|
+|TV<br/>(DOL-017)|<img src="assets/ffta_pc_tv.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|<img src="assets/ffta_agb_tv.png" alt="Final Fantasy Tactics Advance on mGBA with LCDA" width="240"/>|
 
 It is very likely that the lower-left is the artist-intended vision for the game, with the sprites and artwork possibly calibrated on an sRGB PC display monitor.
 
