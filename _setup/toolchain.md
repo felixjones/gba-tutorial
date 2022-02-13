@@ -67,7 +67,7 @@ With an empty file, VSCode usually asks you to select a language. If it does, go
 
 VSCode may recommend some extensions for a better C development experience. Feel free to install those.
 
-<img src="assets/vscode-6.png" alt="VSCode dialogue recommending an install of extensions for C"/>
+<img src="assets/vscode-6.png" alt="VSCode dialogue recommending an install of extensions for C" width="75%"/>
 &nbsp;
 
 Let's paste in a classic demo from the original Tonc<sup>1</sup> tutorial.
@@ -178,7 +178,7 @@ Click Yes to this and VSCode should now display some output whilst it configures
 
 If you look at the output, you should see that it detects our kit with `[kit] Successfully loaded 1 kits from blah blah blah`
 
-<img src="assets/vscode-9.png" alt="VSCode output display showing successfully loaded kits"/>
+<img src="assets/vscode-9.png" alt="VSCode output display showing successfully loaded kits" width="75%"/>
 &nbsp;
 
 We can now select our kit and compile our GBA program!
@@ -200,7 +200,7 @@ So now we hit Build and...
 
 Oof!
 
-<img src="assets/vscode-13.png" alt="Build fail error"/>
+<img src="assets/vscode-13.png" alt="Build fail error" width="75%"/>
 &nbsp;
 
 Linker error.
@@ -249,7 +249,7 @@ gba_target_link_runtime_library(gba-game rom)
 
 Now that we have a ROM runtime, let's try building again and see what we get.
 
-<img src="assets/vscode-14.png" alt="Build success"/>
+<img src="assets/vscode-14.png" alt="Build success" width="75%"/>
 &nbsp;
 
 Exit code 0 means success, we're managed to link our ROM runtime and produced "gba-game.elf".
