@@ -28,3 +28,4 @@ collections:
     output: true
     order:
       - toolchain.md
+      - debugging.md
