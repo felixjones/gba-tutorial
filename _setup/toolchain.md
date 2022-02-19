@@ -252,7 +252,7 @@ Now that we have a ROM runtime, let's try building again and see what we get.
 <img src="assets/vscode-14.png" alt="Build success" width="75%"/>
 &nbsp;
 
-Exit code 0 means success, we're managed to link our ROM runtime and produced "gba-game.elf".
+Exit code 0 means success, we've managed to link our ROM runtime and produced "gba-game.elf".
 
 The emulator [mGBA](http://mgba.io/) actually supports loading ELF files as ROMs, so let's use mGBA to run our ELF file in the `build` folder and see what we get.
 
