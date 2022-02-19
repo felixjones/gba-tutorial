@@ -87,7 +87,7 @@
       </div>
       {% endif %}
 
-      {{ content }}
+      {% include anchor_headings.html html=content anchorBody="#" %}
 
       {% if page.collection %}
       <div class="PageNavigation">
