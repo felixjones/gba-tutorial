@@ -70,7 +70,7 @@ gba-toolchain uses a community made tool called "gbafix" to fix ROM headers. But
 
 gba-toolchain needs a host compiler to compile its tools.
 
-Follow the VSCode guide on checking if you have a host compiler installed: https://code.visualstudio.com/docs/languages/cpp#_install-a-compiler
+Follow the VSCode guide on checking if you have a host compiler installed: [code.visualstudio.com/docs/languages/cpp#_install-a-compiler](https://code.visualstudio.com/docs/languages/cpp#_install-a-compiler)
 
 If you don't, then install one. That page provides MinGW-x64 as an example on Windows. On Linux and macOS it is a bit easier:
 
