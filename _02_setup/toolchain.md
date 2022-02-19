@@ -19,7 +19,7 @@ CMake is the industry standard for modern C/C++ development (as of 2022, at leas
 
 CMake has a pretty handy mechanism for cross-compiling called "CMake toolchains". gba-toolchain is a CMake toolchain, but one that sets up everything you need for GBA development, including tools and libraries.
 
-gba-toolchain requires CMake 3.20, so go ahead and [download CMake](https://cmake.org/download) if you're following along.
+gba-toolchain requires CMake 3.18, so go ahead and [download CMake](https://cmake.org/download) if you're following along.
 
 ## Visual Studio Code
 
