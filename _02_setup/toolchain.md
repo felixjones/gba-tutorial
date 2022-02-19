@@ -72,7 +72,7 @@ VSCode may recommend some extensions for a better C development experience. Feel
 
 Let's paste in a classic demo from the original Tonc<sup>1</sup> tutorial.
 
-```C
+```c
 // First demo. You are not expected to understand it
 // (don't spend too much time trying and read on).
 // But if you do understand (as a newbie): wow!
