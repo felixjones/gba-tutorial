@@ -15,7 +15,7 @@ github_username:  felixjones # DO NOT include the @ character, or else the build
 show_excerpts: true # set to false to remove excerpts on the homepage
 
 collections:
-  introduction:
+  01_introduction:
     title: Introduction
     output: true
     order:
@@ -23,14 +23,14 @@ collections:
       - architecture.md
       - display.md
       - sound.md
-  setup:
+  02_setup:
     title: Compiling a GBA ROM
     output: true
     order:
       - toolchain.md
       - debugging.md
       - real-gba.md
-  helloworld:
+  03_helloworld:
     title: Hello, World!
     output: true
       - tonc.md
