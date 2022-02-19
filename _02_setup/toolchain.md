@@ -15,8 +15,6 @@ On Windows a handy location could be your user directory at `%userprofile%`. On 
 
 ## CMake
 
-CMake is the industry standard for modern C/C++ development (as of 2022, at least), and I promised that this tutorial will cover GBA development in the modern age.
-
 CMake has a pretty handy mechanism for cross-compiling called "CMake toolchains". gba-toolchain is a CMake toolchain, but one that sets up everything you need for GBA development, including tools and libraries.
 
 gba-toolchain requires CMake 3.18, so go ahead and [download CMake](https://cmake.org/download) if you're following along.
