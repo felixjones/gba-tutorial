@@ -88,6 +88,7 @@
       {% endif %}
 
       {% include toc.html html=content %}
+      {% include anchor_headings.html html=content anchorBody="#" beforeHeading=true %}
 
       {% if page.collection %}
       <div class="PageNavigation">
