@@ -53,6 +53,16 @@ We should now have something like the below:
 }
 ```
 
+### Launch.json Target Architecture
+
+By default, VSCode assumes you are going to be debugging the architecture that you're developing from.
+
+Add the field "targetArchitecture" with the value "arm" below the "request" field to inform gdb that we are debugging ARM:
+```json
+    "request": "launch",
+    "targetArchitecture": "arm",
+```
+
 ### Launch.json Program
 
 First, change the program field to point to our GBA ELF file.
@@ -213,6 +223,7 @@ This is what my launch.json looks like after setting it up:
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
+            "targetArchitecture": "arm",
             "program": "${command:cmake.buildDirectory}/gba-game.elf",
             "args": [],
             "stopAtEntry": false,
