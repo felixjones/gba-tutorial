@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sound"
+title: "Audio Hardware"
 ordering: 4
 ---
 

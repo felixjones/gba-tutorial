@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Display"
+title: "Video Hardware"
 ordering: 3
 ---
 

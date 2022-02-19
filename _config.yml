@@ -24,9 +24,13 @@ collections:
       - display.md
       - sound.md
   setup:
-    title: Setup
+    title: Compiling a GBA ROM
     output: true
     order:
       - toolchain.md
       - debugging.md
       - real-gba.md
+  helloworld:
+    title: Hello, World!
+    output: true
+      - tonc.md

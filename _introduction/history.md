@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "History"
+title: "A Brief History"
 ordering: 1
 ---
 

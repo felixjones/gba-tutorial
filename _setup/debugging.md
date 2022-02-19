@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Debugging"
+title: "Debugging with VSCode"
 ordering: 2
 ---
 

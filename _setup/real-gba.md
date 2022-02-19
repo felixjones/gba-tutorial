@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Testing on GBA"
+title: "Testing on a real GBA"
 ordering: 3
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Architecture"
+title: "The Architecture"
 ordering: 2
 ---
 

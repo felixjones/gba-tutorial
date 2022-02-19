@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Toolchain"
+title: "Setup with VSCode"
 ordering: 1
 ---
 
