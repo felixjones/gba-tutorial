@@ -15,7 +15,7 @@ We turn our ELF into a binary by copying the various binary sections described b
 Let's go back to our CMakeLists.txt file:
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 
 project("My GBA Project" C)
 
@@ -24,7 +24,7 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 
 gba_add_library_subdirectory(rom)
 
-gba_target_link_runtime_library(gba-game rom)
+target_link_libraries(gba-game PRIVATE rom)
 ```
 
 gba-toolchain provides the CMake function `gba_target_objcopy` for running objcopy on our target.
@@ -37,7 +37,7 @@ gba_target_objcopy(gba-game)
 Which should now look like:
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 
 project("My GBA Project" C)
 
@@ -46,7 +46,7 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 
 gba_add_library_subdirectory(rom)
 
-gba_target_link_runtime_library(gba-game rom)
+target_link_libraries(gba-game PRIVATE rom)
 
 gba_target_objcopy(gba-game)
 ```
@@ -89,7 +89,7 @@ gba-toolchain's `gba_target_objcopy` CMake function takes the parameter: `FIX_HE
 Our CMakeLists.txt should now look like this:
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 
 project("My GBA Project" C)
 
@@ -98,7 +98,7 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 
 gba_add_library_subdirectory(rom)
 
-gba_target_link_runtime_library(gba-game rom)
+target_link_libraries(gba-game PRIVATE rom)
 
 gba_target_objcopy(gba-game FIX_HEADER)
 ```
