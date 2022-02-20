@@ -95,10 +95,10 @@ And save this file as `main.c`.
 
 Create a new file next to `main.c` and call it `CMakeLists.txt`. You can consider this our "project" file.
 
-gba-toolchain requires CMake 3.20, so we start off by declaring this at the top of the CMakeLists.txt
+gba-toolchain requires CMake 3.18, so we start off by declaring this at the top of the CMakeLists.txt
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 ```
 
 We then give our project a name, and declare the programming language it will use, which is C. I named my project "My GBA Project".
@@ -117,7 +117,7 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 That should be enough to get things going for now. The complete CMakeLists.txt should look like:
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 
 project("My GBA Project" C)
 
@@ -226,14 +226,10 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 gba_add_library_subdirectory(rom)
 ```
 
-We could link to librom in the normal CMake way, but there's a bit more to runtime libraries than just the library itself (linker scripts, specs files, and more).
-
-Instead, gba-toolchain links runtimes with the function: `gba_target_link_runtime_library` which takes the name of your executable, and the name of the runtime you want to link with.
-
-We're linking with librom so we'll use "rom".
+And we link it with CMake's `target_link_libraries` function:
 
 ```cmake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.18)
 
 project("My GBA Project" C)
 
@@ -242,7 +238,7 @@ set_target_properties(gba-game PROPERTIES SUFFIX ".elf")
 
 gba_add_library_subdirectory(rom)
 
-gba_target_link_runtime_library(gba-game rom)
+target_link_libraries(gba-game PRIVATE rom)
 ```
 
 Now that we have a ROM runtime, let's try building again and see what we get.
