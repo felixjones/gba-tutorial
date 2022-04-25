@@ -19,6 +19,32 @@ CMake has a pretty handy mechanism for cross-compiling called "CMake toolchains"
 
 gba-toolchain requires CMake 3.18, so go ahead and [download CMake](https://cmake.org/download) if you're following along.
 
+## Ninja (Windows)
+
+[Ninja](https://ninja-build.org/) is an alternative to the classic Make build system. We will use this as our CMake generator target on Windows.
+
+Download the latest build of Ninja for win from [github.com/ninja-build/ninja/releases](https://github.com/ninja-build/ninja/releases) and extract it to a sensible location that we'll add as a PATH variable. I recommend making a folder called "ninja" in your homepath `%HOMEPATH%`, so the `ninja.exe` file should be located at `%HOMEPATH%\ninja\ninja.exe`.
+
+To add a Windows path variable open the "Edit the system environment variables" shortcut from the start menu:
+
+<img src="assets/path-0.png" alt="Windows Start menu showing the Edit the system environment variables shortcut"/>&nbsp;
+
+Then click the `Environment Variables...` button:
+
+<img src="assets/path-1.png" alt="The System Properties window with the Environment Variables button highlighted"/>&nbsp;
+
+In the User variables at the top select Path then click Edit:
+
+<img src="assets/path-2.png" alt="The Environment Variables window with the upper Path option selected"/>&nbsp;
+
+Then from here, click the New button to create a new field. If you copied Ninja to `%HOMEPATH%\ninja\ninja.exe` then you can type "%HOMEPATH%\\ninja\\" in the text entry and hit ok, otherwise you can click Browse and locate the directory manually.
+
+<img src="assets/path-3.png" alt="The Edit environment variable window with a new Path field"/>&nbsp;
+
+To test that Ninja is working open Command Prompt and type `ninja --version`
+
+<img src="assets/path-4.png" alt="Command Prompt showing Ninja --version"/>&nbsp;
+
 ## Visual Studio Code
 
 Modern IDEs tend to have good support for CMake based projects. VSCode is one of them (via the CMake plugin). Like CMake, it's cross-platform.
