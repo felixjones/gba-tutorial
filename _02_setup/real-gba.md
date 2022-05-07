@@ -138,11 +138,11 @@ gba_target_objcopy(gba-game FIX_HEADER
 
 ### UTTD and the Everdrive X5 Flashcart
 
-Version 1.13 of the Everdrive X5 OS uses an ASCII number (1 to 4) in the unicode code as an easy way to identify save-type:
+Version 1.13 of the Everdrive X5 OS uses an ASCII number (1 to 4) as the unique code for an easy way to identify save-type:
 
 1. EEPROM
 2. SRAM
 3. FLASH-64
 4. FLASH-128
 
-For friendliness towards the X5, I recommend using this when possible!
+For friendliness towards the X5, I recommend using this if possible!

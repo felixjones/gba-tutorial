@@ -135,7 +135,7 @@ gba-toolchain by default will download and install the ARM GNU toolchain to a co
 |OS|Where|VSCode variable|
 |-|-|-|
 |Windows|%LOCALAPPDATA%|${env:LOCALAPPDATA}|
-|Linux|Home|~/|
+|Linux|Home|${env:HOME}|
 |macOS|Local user share|/usr/local/share/|
 
 So fill in the "miDebuggerPath" fields with the paths:
